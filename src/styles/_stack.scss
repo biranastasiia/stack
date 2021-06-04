@@ -1,5 +1,17 @@
 .stack{
-    padding: 40px 0;
+    padding: 80px 0;
+    &__wrapper{
+        background: radial-gradient(transparent, black 80%),
+        url('../assets/images/back.jpg') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+
+        top: 0;
+        left: 0;
+        // height: 100vh;
+    }
     &__title{
         text-align: center;
         text-transform: uppercase;
@@ -8,6 +20,32 @@
         -1px 1px 0 #000,
         1px 1px 0 #000;
         font-size: 40px;
+    }
+
+    &__total-score-title{
+        text-transform: uppercase;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    &__total-score{
+        width: 60px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 18px;
+        line-height: 1.5;
+        font-weight: 700;
+        margin-top: 10px;
+    }
+
+    .bot-score, .user-score{
+        background-color: white;
+        color: black;
+        width: 43%;
+        text-align: center;
+        border-radius: 3px;
     }
 
     &__content{
@@ -23,7 +61,7 @@
     .gun-shop{
         width: 300px;
         height: 300px;
-        background-color: darkslategray;
+        background-color: black;
         border-radius: 50%;
         border: 5px double #fff;
         position: relative;
@@ -34,33 +72,34 @@
         width: 70px;
         height: 70px;
         background-color: slategray;
+        box-shadow: inset 0px 0px 20px 20px black;
         border: 3px solid #fff;
         border-radius: 50%;
         position: absolute;
     }
     .chamber-6 {
         top: 10%;
-        left: 25%;
+        left: 22%;
     }
     .chamber-5 {
         top: 10%;
-        right: 25%;
+        right: 22%;
     }
     .chamber-4 {
         top: 40%;
-        right: 10%;
+        right: 7%;
     }
     .chamber-3 {
         bottom: 10%;
-        right: 25%;
+        right: 22%;
     }
     .chamber-2 {
         bottom: 10%;
-        left: 25%;
+        left: 22%;
     }
     .chamber-1 {
         top: 40%;
-        left: 10%;
+        left: 7%;
     }
     .ratchet{
         position: absolute;
@@ -69,27 +108,50 @@
         transform: translate(-50%, -50%);
         width: 40px;
         height: 40px;
-        border: 10px solid #000;
+        border: 10px solid $rustic-red;
+        border-radius: 50%;
+        background-color: slategray;
+        box-shadow: inset 0px 0px 5px 5px black;
+    }
+
+    .shootenChamber{
+        background-color: white;
+        box-shadow: inset 0 0 20px 20px $rustic-red;
+    }
+
+    input{
+        position: absolute;
+        z-index: -1;
+    }
+
+    input + label::after{
+        pointer-events: none;
+        content: '';
+        position: absolute;
+        top: 58%;
+        left: 45%;
+        width: 15px;
+        height: 15px;
+        background-color: white;
+        border: 3px solid white;
         border-radius: 50%;
     }
 
-    .playerShoot{
-        background-color: rgb(144, 112, 117);
-    }
-
-    .botShoot {
-        background-color: rgb(76, 14, 112);
+    input:checked + label::after {
+        background-color: yellowgreen;
     }
 
     &__player{
-        padding: 50px 0;
         width: 25%;
-        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
     }
 
     &__player-title{
         font-size: 25px;
-        margin-bottom: 10px;
         text-shadow: -1px -1px 0 #000,
         1px -1px 0 #000,
         -1px 1px 0 #000,
@@ -113,6 +175,8 @@
     }
 
     &__button{
+        background: white;
+        color: black;
         padding: 20px 0px;
         width: 45%;
         text-align: center;
@@ -121,22 +185,18 @@
         font-weight: bold;
         transition: 0.3s ease-in-out;
         border-radius: 5px;
+        outline: none;
     }
 
-    .shoot{
-        background: chocolate;
-        &:hover {
-            transform: scale(0.9);
-            box-shadow: inset 0px 0px 20px 20px maroon;
-        }
+    .shoot:hover {
+        transform: scale(0.9);
+        box-shadow: inset 0px 0px 20px 20px $rustic-red;
+        background: red;
     }
 
-    .refill{
-        background: green;
-        &:hover {
-            transform: scale(0.9);
-            box-shadow: inset 0px 0px 20px 20px yellowgreen;
-        }
+    .refill:hover {
+        transform: scale(0.9);
+        box-shadow: inset 0px 0px 20px 20px yellowgreen;
     }
 
     .disabled {
